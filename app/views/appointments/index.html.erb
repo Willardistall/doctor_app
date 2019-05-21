@@ -1,0 +1,34 @@
+<h1><%= @doctor.full_name %>: appointments</h1>
+<%= link_to 'Add Appointment', new_doctor_appointment_path(@doctor) %>
+<hr />
+
+<h2>Physician</h2>
+<ul>
+  <% @physicians.each do |physician| %>
+    <li>
+      <%= physician.patient.full_name %>
+      <br />
+      <%= link_to 'Remove', doctor_appointment_path(@doctor, physician), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+<h2>Assistant</h2>
+<ul>
+  <% @assistants.each do |assistant| %>
+    <li>
+      <%= assistant.patient.full_name %>
+      <br />
+      <%= link_to 'Remove', doctor_appointment_path(@doctor, assistant), method: :delete %>
+    </li>
+ <% end %>
+</ul>
+<h2>Client</h2>
+<ul>
+  <% @clients.each do |client| %>
+    <li>
+      <%= client.patient.full_name %>
+      <br />
+      <%= link_to 'Remove', doctor_appointment_path(@doctor, client), method: :delete %>
+   </li>
+ <% end %>
+</ul>
